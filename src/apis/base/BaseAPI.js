@@ -1,10 +1,4 @@
-import axios from 'axios';
-import APIConfig from '@/apis/config/APIConfig.js';
-
-var api = axios.create({
-    baseURL: APIConfig,
-    headers: { 'Content-type': 'application/json' }
-});
+import api from '@/apis/config/APIConfig.js';
 
 export default class BaseAPI {
     constructor() {
