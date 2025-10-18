@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+//#region Props
 const props = defineProps({
   icon: {
     type: Object,
@@ -31,6 +32,7 @@ const props = defineProps({
     default: 'primary'
   }
 })
+//#endregion
 </script>
 
 <style scoped>

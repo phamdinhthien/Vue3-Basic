@@ -1,60 +1,88 @@
-# Vue 3 + Vite Project
+# Dự Án Vue 3 + Vite
 
-This is a modern Vue 3 project built with Vite as the build tool. The project demonstrates best practices and key Vue 3 features.
+Đây là một dự án hiện đại sử dụng Vue 3 và công cụ build Vite. Dự án thể hiện các phương pháp thực hành tốt nhất và các tính năng chính của Vue 3.
 
-## Getting Started
+## Bắt Đầu
 
-1. Install dependencies:
+1. Cài đặt các gói phụ thuộc:
 ```bash
 npm install
 ```
 
-2. Run development server:
+2. Chạy máy chủ phát triển:
 ```bash
 npm run dev
 ```
 
-## Project Structure
+## Cấu Trúc Dự Án
 
 ```
-├── public/          # Static assets
+├── public/            # Tài nguyên tĩnh
 ├── src/
-│   ├── assets/     # Project assets (images, styles)
-│   ├── components/ # Reusable Vue components
-│   ├── views/      # Page components
-│   ├── App.vue     # Root component
-│   └── main.js     # Application entry point
-├── vite.config.js  # Vite configuration
-└── .gitignore      # Git ignore patterns
+│   ├── assets/       # Tài nguyên dự án (hình ảnh, styles)
+│   │   └── styles/   # File CSS
+│   ├── components/   # Components Vue có thể tái sử dụng
+│   │   ├── ms-button/# Component button
+│   │   └── ms-table/ # Component table
+│   ├── utils/        # Các hàm tiện ích
+│   ├── views/        # Components trang
+│   ├── App.vue       # Component gốc
+│   └── main.js       # Điểm khởi đầu ứng dụng
+├── vite.config.js    # Cấu hình Vite
+└── .gitignore        # Cấu hình bỏ qua Git
 ```
 
-## Version Control
+## Quy Tắc Đặt Tên
 
-The project includes a `.gitignore` file that excludes:
-- Node dependencies (`node_modules/`)
-- Build outputs (`dist/`, `dist-ssr/`)
-- Local development files (`*.local`)
-- Log files (`logs/`, `*.log`)
-- Editor-specific files (`.vscode/`, `.idea/`, `.DS_Store`, etc.)
+### Tên Thư Mục
+- Sử dụng chữ thường và dấu gạch ngang (-) để ngăn cách các từ
+- Tên phải mô tả rõ mục đích của thư mục
+- Ví dụ: `ms-button`, `ms-table`
 
-## Features
+### Tên File
+1. File Components:
+   - Sử dụng PascalCase (viết hoa chữ cái đầu của mỗi từ)
+   - Phải kết thúc bằng .vue
+   - Ví dụ: `MsButton.vue`, `Counter.vue`
 
-- Vue 3 Composition API with `<script setup>`
-- Fast development with Vite
-- Component-based architecture
-- Custom button component (MsButton)
-- Counter view implementation
-- Base CSS styling
+2. File JavaScript:
+   - Sử dụng camelCase (chữ cái đầu tiên viết thường, các từ tiếp theo viết hoa)
+   - Phải kết thúc bằng .js
+   - Ví dụ: `formatter.js`, `main.js`
 
-## Development Tools
+3. File CSS:
+   - Sử dụng chữ thường và dấu gạch ngang
+   - Phải kết thúc bằng .css
+   - Ví dụ: `base.css`
 
-- [Vue 3 Documentation](https://v3.vuejs.org/)
-- [Vite Documentation](https://vitejs.dev/)
+## Kiểm Soát Phiên Bản
+
+File `.gitignore` loại trừ các mục sau:
+- Thư mục node modules (`node_modules/`)
+- Thư mục build (`dist/`, `dist-ssr/`)
+- File phát triển cục bộ (`*.local`)
+- File logs (`logs/`, `*.log`)
+- File của trình soạn thảo (`.vscode/`, `.idea/`, `.DS_Store`, v.v.)
+
+## Tính Năng
+
+- Vue 3 Composition API với `<script setup>`
+- Phát triển nhanh với Vite
+- Kiến trúc dựa trên components
+- Component button tùy chỉnh (MsButton)
+- Component table tùy chỉnh (MsTable)
+- Trang Counter mẫu
+- CSS cơ bản
+
+## Công Cụ Phát Triển
+
+- [Tài liệu Vue 3](https://v3.vuejs.org/)
+- [Tài liệu Vite](https://vitejs.dev/)
 - [Vue SFC `<script setup>`](https://v3.vuejs.org/api/sfc-script-setup.html)
-- [Vue IDE Support](https://vuejs.org/guide/scaling-up/tooling.html#ide-support)
+- [Hỗ trợ IDE cho Vue](https://vuejs.org/guide/scaling-up/tooling.html#ide-support)
 
-## Available Scripts
+## Các Lệnh Có Sẵn
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
+- `npm run dev` - Khởi động máy chủ phát triển
+- `npm run build` - Build cho production
+- `npm run preview` - Xem trước bản build production
