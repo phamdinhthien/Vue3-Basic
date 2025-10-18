@@ -12,7 +12,14 @@
       :rows="rows"
       @edit="handleEdit"
       @delete="handleDelete"
-    />
+    >
+      <template #Name="{ row, value }">
+        <div style="display: flex; flex-direction: column;">
+          <strong>{{ value }}</strong>
+          <div v-if="row.IsUser" style="color: green;"><i class="fa fa-user"></i> Nhân viên</div>
+        </div>
+      </template>
+    </MsTable>
   </div>
 </template>
 
@@ -23,10 +30,10 @@ import MsButton from '@/components/ms-button/MsButton.vue';
 
 //#region Static Data
 const fields = [
-  { key: 'id', label: 'ID', type: 'number' },
-  { key: 'name', label: 'Name', type: 'text' },
-  { key: 'birthDate', label: 'Birth Date', type: 'date' },
-  { key: 'amount', label: 'Amount ($)', type: 'number' }
+  { key: 'Id', label: 'ID', type: 'number' },
+  { key: 'Name', label: 'Họ và tên', type: 'custom' },
+  { key: 'BirthDate', label: 'Ngày sinh', type: 'date' },
+  { key: 'Amount', label: 'Thực lĩnh ($)', type: 'number' }
 ]
 //#endregion 
 
@@ -34,22 +41,25 @@ const fields = [
 const count = ref(0)
 const rows = ref([
   {
-    id: 1,
-    name: 'John Doe',
-    birthDate: '1990-01-15',
-    amount: 1234.56
+    Id: 1,
+    Name: 'John Doe',
+    BirthDate: '1990-01-15',
+    Amount: 1234.56,
+    IsUser: true
   },
   {
-    id: 2,
-    name: 'Jane Smith',
-    birthDate: '1985-06-22',
-    amount: 9876.54
+    Id: 2,
+    Name: 'Jane Smith',
+    BirthDate: '1985-06-22',
+    Amount: 9876.54,
+    IsUser: false
   },
   {
-    id: 3,
-    name: 'Bob Johnson',
-    birthDate: '1995-12-30',
-    amount: 5432.10
+    Id: 3,
+    Name: 'Bob Johnson',
+    BirthDate: '1995-12-30',
+    Amount: 5432.10,
+    IsUser: true
   }
 ])
 //#endregion
@@ -76,7 +86,7 @@ const handleEdit = (row) => {
  * createdby: pdthien - 15.10.2025
  */
 const handleDelete = (row) => {
-  rows.value = rows.value.filter(item => item.id !== row.id)
+  rows.value = rows.value.filter(item => item.Id !== row.Id)
 }
 //#endregion
 </script>

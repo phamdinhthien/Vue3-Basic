@@ -12,7 +12,7 @@
             <!-- Custom type with slot -->
             <template v-if="field.type === 'custom'">
               <slot 
-                :name="field.slotName || field.key"
+                :name="field.key"
                 :row="row"
                 :field="field"
                 :value="row[field.key]"
