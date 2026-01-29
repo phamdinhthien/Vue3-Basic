@@ -7,12 +7,7 @@
 
   <div class="example-table">
     <h2>Employee Table</h2>
-    <MsTable
-      :fields="fields"
-      :rows="rows"
-      @edit="handleEdit"
-      @delete="handleDelete"
-    >
+    <MsTable :fields="fields" :rows="rows" @edit="handleEdit" @delete="handleDelete">
       <template #Name="{ row, value }">
         <div style="display: flex; flex-direction: column;">
           <strong>{{ value }}</strong>
@@ -20,6 +15,7 @@
         </div>
       </template>
     </MsTable>
+    <EmployeeForm v-if="isShowForm" v-model="isShowForm" :employee="selectedEmployee" @save="handleSave" />
   </div>
 </template>
 
@@ -27,6 +23,7 @@
 import { ref } from 'vue'
 import MsTable from '@/components/ms-table/MsTable.vue'
 import MsButton from '@/components/ms-button/MsButton.vue';
+import EmployeeForm from './EmployeeForm.vue';
 
 //#region Static Data
 const fields = [
@@ -39,6 +36,8 @@ const fields = [
 
 //#region State Data
 const count = ref(0)
+const isShowForm = ref(false);
+const selectedEmployee = ref({});
 const rows = ref([
   {
     Id: 1,
@@ -77,7 +76,17 @@ defineProps({
  * createdby: pdthien - 15.10.2025
  */
 const handleEdit = (row) => {
-  console.log('Edit:', row)
+  selectedEmployee.value = row;
+  isShowForm.value = true;
+}
+
+const handleSave = (employee) => {
+  const index = rows.value.findIndex(item => item.Id === employee.Id);
+  if (index !== -1) {
+    rows.value[index] = employee;
+  } else {
+    rows.value.push({ ...employee, Id: rows.value.length + 1 });
+  }
 }
 
 /**

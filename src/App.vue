@@ -1,9 +1,9 @@
 <script setup>
-import Counter from './views/Counter.vue'
+import Employee from './views/employee/Employee.vue'
 </script>
 
 <template>
-  <Counter msg="Counter" />
+  <Employee msg="Employee Management" />
 </template>
 
 <style scoped>
